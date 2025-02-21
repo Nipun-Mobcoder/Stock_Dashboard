@@ -1,8 +1,9 @@
 import { Navigate, Route, Routes } from "react-router";
 import Form from "./modules/Form";
-import Home from "./modules/Home";
+import Dashboard from "./modules/Dashboard";
 import axios from "axios";
 import Wallet from "./modules/Wallet";
+import Layout from "./component/Layout";
 
 axios.defaults.baseURL = `http://localhost:8000`;
 
@@ -27,7 +28,9 @@ function App() {
         path="/"
         element={
           <ProtectedRoutes>
-            <Home />
+            <Layout>
+              <Dashboard />
+            </Layout>
           </ProtectedRoutes>
         }
       />

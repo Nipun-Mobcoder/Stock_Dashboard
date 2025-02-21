@@ -2,7 +2,7 @@ import { FormEvent, useState } from "react";
 import Input from "../component/Input";
 import Button from "../component/Button";
 import { useNavigate } from "react-router";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 
 interface addressType {
   state: string;
@@ -32,6 +32,7 @@ const Form = ({ isSignInPage = true }) => {
       country: "",
     },
   }));
+  const [message, setMessage] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -54,6 +55,7 @@ const Form = ({ isSignInPage = true }) => {
         localStorage.setItem("user:data", JSON.stringify(val.data.data.user));
         navigate("/");
       } catch (e) {
+        setMessage(e instanceof(AxiosError) ? e.response?.data.message.message : "Looks like something went wrong");
         console.log(e);
       }
     }
@@ -121,6 +123,7 @@ const Form = ({ isSignInPage = true }) => {
             setData({ ...data, password: e.target.value })
           }
         />
+        <h4 className={`text-red-600 ${message && "mb-2" }`} >{message}</h4>
         <Button
           className="w-1/2"
           type="submit"

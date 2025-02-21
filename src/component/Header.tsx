@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router";
-import WalletDialouge from "./WalletDialouge";
 
-const Header = () => {
+const Header = ({ setModal }: { setModal: React.Dispatch<React.SetStateAction<boolean>>}) => {
   const navigate = useNavigate();
   const userLocalItem = localStorage.getItem("user:data");
   if (!userLocalItem) {
@@ -54,9 +53,8 @@ const Header = () => {
               Hello, {userData.userName.firstName}!
             </span>
             <div className="relative w-[72] h-[32] ">
-             <WalletDialouge/>
             <button
-              onClick={() => { navigate("/wallet") }}
+              onClick={() => { setModal(true) }}
               className="bg-yellow-500 hover:bg-gray-300 px-3 py-1 rounded-full text-sm text-black flex items-center gap-2 cursor-pointer"
             >
               <svg
