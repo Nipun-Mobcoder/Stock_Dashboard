@@ -22,14 +22,16 @@ const Layout = ({ children }: React.PropsWithChildren) => {
 
   return (
     <>
-      <Header setModal={setModal} />
+      <header>
+        <Header setModal={setModal} />
+      </header>
       {modal && (
         <div className="w-full h-screen">
           <div className="w-full h-screen absolute z-10 top-0 left-0  bg-black/30" />
-          <WalletDialouge ref={ref} />
+          <WalletDialouge ref={ref} setModal={setModal} />
         </div>
       )}
-      <div>{children}</div>
+      <div> {children} </div>
     </>
   );
 };

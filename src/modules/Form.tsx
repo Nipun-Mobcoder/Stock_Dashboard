@@ -2,15 +2,16 @@ import { FormEvent, useState } from "react";
 import Input from "../component/Input";
 import Button from "../component/Button";
 import { useNavigate } from "react-router";
-import axios, { AxiosError } from "axios";
+import { AxiosError } from "axios";
+import { loginUser, registerUser } from "../component/api/main";
 
-interface addressType {
+export interface addressType {
   state: string;
   city: string;
   country: string;
 }
 
-interface dataType {
+export interface dataType {
   firstName: string;
   lastName: string;
   email: string;
@@ -39,18 +40,14 @@ const Form = ({ isSignInPage = true }) => {
     e.preventDefault();
     if (!isSignInPage) {
       try {
-        await axios.post("/users/register", { ...data });
+        await registerUser(data);
         navigate("/sign_in");
       } catch (e) {
         console.log(e);
       }
     } else {
       try {
-        const val = await axios.post("/users/login", {
-          email: data.email,
-          password: data.password,
-        });
-        console.log(val);
+        const val = await loginUser(data);
         localStorage.setItem("user:token", val.data.data.token);
         localStorage.setItem("user:data", JSON.stringify(val.data.data.user));
         navigate("/");

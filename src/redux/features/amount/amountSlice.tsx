@@ -1,0 +1,34 @@
+import { createSlice } from "@reduxjs/toolkit";
+import type { PayloadAction } from "@reduxjs/toolkit";
+import { RootState } from "../../../store";
+
+interface AmountState {
+  value: number;
+}
+
+const initialState: AmountState = {
+  value: 0,
+};
+
+export const amountSlice = createSlice({
+  name: "amount",
+  initialState,
+  reducers: {
+    increment: (state, action: PayloadAction<number>) => {
+      console.log(state, action);
+      state.value += action.payload;
+    },
+    decrement: (state, action: PayloadAction<number>) => {
+      state.value -= action.payload;
+    },
+    set: (state, action: PayloadAction<number>) => {
+      state.value = action.payload;
+    },
+  },
+});
+
+export const { increment, decrement, set } = amountSlice.actions;
+
+export const selectAmount = (state: RootState) => state.amount.value;
+
+export default amountSlice.reducer;
