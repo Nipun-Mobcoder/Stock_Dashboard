@@ -1,0 +1,1 @@
+export const reports = ["Today", "This Week", "This Month", "This Year"];

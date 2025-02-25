@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { completePayment } from "../component/api/main";
 import Loader from "../component/Loader";
 import { useAppDispatch } from "../redux/hooks/hooks";
-import { increment } from "../redux/features/amount/amountSlice";
+import { set } from "../redux/features/amount/amountSlice";
 
 interface PaymentDataType {
   id: string;
@@ -42,10 +42,10 @@ const PaymentConfirmation = () => {
               "user:data",
               JSON.stringify({
                 ...userData,
-                walletAmount : data.data.wallet,
+                walletAmount: data.data.wallet,
               })
             );
-            dispatch(increment(data.data.paymentInfo.amount/100))
+            dispatch(set(data.data.wallet));
             setPaymentData(data.data.paymentInfo);
           }
         } catch (error) {
@@ -55,7 +55,7 @@ const PaymentConfirmation = () => {
       };
       fetchData();
     }
-  }, [paymentid]);
+  }, [paymentid, dispatch]);
 
   return paymentData ? (
     <div className="w-full h-screen flex justify-center items-center bg-blue-100">

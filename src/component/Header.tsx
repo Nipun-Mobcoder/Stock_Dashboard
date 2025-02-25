@@ -16,7 +16,7 @@ const Header = ({
   const amount = useAppSelector((state) => state.amount.value/100)
 
   return (
-    <header className="bg-gray-900  w-full text-white py-4 px-6 flex justify-between items-center shadow-lg">
+    <header className="bg-gray-900  w-full text-white py-4 px-6 flex justify-between items-center shadow-lg fixed z-50 top-0 backdrop-blur-lg ">
       <div
         className="cursor-pointer flex items-center gap-2"
         onClick={() => navigate("/")}
@@ -39,7 +39,7 @@ const Header = ({
 
       <nav className="hidden md:flex space-x-6">
         <button
-          onClick={() => navigate("/dashboard")}
+          onClick={() => navigate("/")}
           className="cursor-pointer hover:text-gray-300"
         >
           Dashboard

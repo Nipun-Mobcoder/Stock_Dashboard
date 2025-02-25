@@ -62,4 +62,8 @@ export const completePayment = async (paymentId: string) => {
   });
 };
 
+export const portfolioInfo = async () => {
+  return api.get(`https://portfolio.free.beeceptor.com`);
+};
+
 export default api;

@@ -1,0 +1,152 @@
+{
+  "balance": 703322,
+  "holdings": {
+    "NETFLIX": 3,
+    "GOOGLE": 5,
+    "TESLA": 2,
+    "HATHAWAY": 8
+  },
+  "limit": {
+    "set": false,
+    "limit": null
+  },
+  "week": {
+    "transactions": 17
+  },
+  "yesterday": {
+    "bought": [
+      {
+        "NETFLIX": 2
+      },
+      {
+        "GOOGLE": 1
+      }
+    ],
+    "sold": []
+  },
+  "stockNews": [
+    {
+      "news_url": "https://www.reuters.com/business/autos-transportation/tesla-add-city-navigation-feature-software-china-sources-say-2025-02-25/",
+      "image_url": "https://cdn.snapi.dev/images/v1/j/d/z/tsla36-2683683-2932048.jpg",
+      "title": "Tesla to add city navigation feature to software in China, sources say",
+      "text": "Tesla plans to update software in cars in China to add driving-assistance capabilities that will help drivers navigate city streets, according to a company notification and two people with direct knowledge of the matter.",
+      "source_name": "Reuters",
+      "date": "Mon, 24 Feb 2025 19:30:14 -0500",
+      "topics": [],
+      "sentiment": "Positive",
+      "type": "Article",
+      "tickers": ["TSLA"]
+    },
+    {
+      "news_url": "https://www.youtube.com/watch?v=DrVw6wPGcfE",
+      "image_url": "https://cdn.snapi.dev/images/v1/5/r/g/freed-2787322-2931410.jpg",
+      "title": "Options Corner: TSLA, MRVL, CMG",
+      "text": "Today's Options Corner turns to names that all fell around 20% off their all-time highs: Tesla (TSLA), Marvell (MRVL) and Chipotle (CMG). Tom White takes investors through unusual options trade activity in these stocks and turns to the news behind the sentiment.",
+      "source_name": "Schwab Network",
+      "date": "Mon, 24 Feb 2025 15:00:13 -0500",
+      "topics": [],
+      "sentiment": "Negative",
+      "type": "Video",
+      "tickers": ["MRVL", "TSLA", "CMG"]
+    }
+  ],
+  "portfolio": [
+    {
+      "NETFLIX": {
+        "market_cap": "422.82 Billion",
+        "balance": 3,
+        "price": 988.47,
+        "7day": {
+          "profit": true,
+          "value": 5.1
+        },
+        "30day": {
+          "profit": false,
+          "value": 27.4
+        },
+        "1year": {
+          "profit": true,
+          "value": 49.6
+        }
+      }
+    },
+    {
+      "GOOGLE": {
+        "market_cap": "2.20 Trillion",
+        "balance": 5,
+        "price": 181.19,
+        "7day": {
+          "profit": false,
+          "value": 8.1
+        },
+        "30day": {
+          "profit": false,
+          "value": 41.4
+        },
+        "1year": {
+          "profit": true,
+          "value": 2.6
+        }
+      }
+    },
+    {
+      "TESLA": {
+        "market_cap": "1.04 Trillion",
+        "balance": 2,
+        "price": 330.53,
+        "7day": {
+          "profit": true,
+          "value": 2.15
+        },
+        "30day": {
+          "profit": true,
+          "value": 8.16
+        },
+        "1year": {
+          "profit": true,
+          "value": 32.6
+        }
+      }
+    },
+    {
+      "HATHAWAY": {
+        "market_cap": "1.07 Trillion",
+        "balance": 8,
+        "price": 498.42,
+        "7day": {
+          "profit": true,
+          "value": 4.11
+        },
+        "30day": {
+          "profit": false,
+          "value": 3.73
+        },
+        "1year": {
+          "profit": true,
+          "value": 21.82
+        }
+      }
+    }
+  ],
+  "graphData": {
+    "xAxisLabels": ["2024-11", "2024-12", "2025-01", "2025-02"],
+    "series": [
+      {
+        "data": [220.965, 237.27, 248.93, 229.99],
+        "label": "Open Price"
+      },
+      {
+        "data": [237.81, 260.1, 249.1, 248.69],
+        "label": "High Price"
+      },
+      {
+        "data": [219.71, 237.16, 219.38, 225.7],
+        "label": "Low Price"
+      },
+      {
+        "data": [237.33, 250.42, 236, 245.55],
+        "label": "Close Price"
+      }
+    ]
+  }
+}

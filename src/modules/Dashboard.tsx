@@ -1,26 +1,19 @@
-// import { BarChart } from "@mui/x-charts/BarChart";
 import Box from "@mui/material/Box";
 import Tab from "@mui/material/Tab";
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import React, { useEffect, useState } from "react";
-import { Company } from "../constants/enums/company.enum";
 import { LineChart } from "@mui/x-charts";
-import { fetchStockData } from "../component/api/main";
 import { Alert, CircularProgress, Snackbar } from "@mui/material";
+import { useNavigate } from "react-router";
+
+import { Company } from "../constants/enums/company.enum";
+import { fetchStockData } from "../component/api/main";
 import StockIcon from "../constants/icons/CompanyIcons";
 import { useAppDispatch } from "../redux/hooks/hooks";
-import { useNavigate } from "react-router";
 import { set } from "../redux/features/amount/amountSlice";
-
-type StockChartData = {
-  xAxisLabels: string[];
-  series: {
-    data: number[];
-    label: string;
-  }[];
-};
+import { StockChartData } from "../constants/types/StockChartType";
 
 const Dashboard = () => {
   const navigate = useNavigate();

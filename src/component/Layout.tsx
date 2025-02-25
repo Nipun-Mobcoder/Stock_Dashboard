@@ -19,6 +19,15 @@ const Layout = ({ children }: React.PropsWithChildren) => {
       document.removeEventListener("mousedown", handleModel);
     };
   }, [modal]);
+  useEffect(() => {
+    if (modal) {
+      document.body.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hidden");
+    }
+
+    return () => document.body.classList.remove("overflow-hidden");
+  }, [modal]);
 
   return (
     <>
@@ -26,12 +35,12 @@ const Layout = ({ children }: React.PropsWithChildren) => {
         <Header setModal={setModal} />
       </header>
       {modal && (
-        <div className="w-full h-screen">
-          <div className="w-full h-screen absolute z-10 top-0 left-0  bg-black/30" />
+        <div className="w-full top-0 absolute z-10 h-screen">
+          <div className="w-full h-screen absolute z-20 top-0 left-0  bg-black/30" />
           <WalletDialouge ref={ref} setModal={setModal} />
         </div>
       )}
-      <div> {children} </div>
+      <div className="mt-16"> {children} </div>
     </>
   );
 };

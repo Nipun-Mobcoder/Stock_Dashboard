@@ -6,6 +6,9 @@ import Layout from "./component/Layout";
 import PaymentConfirmation from "./modules/PaymentConfirmation";
 import ErrorPage from "./modules/ErrorPage";
 import Portfolio from "./modules/Portfolio";
+import { useEffect } from "react";
+import { fetchInitialAmount } from "./redux/features/amount/amountSlice";
+import { useAppDispatch } from "./redux/hooks/hooks";
 
 const ProtectedRoutes = ({ children }: React.PropsWithChildren) => {
   const isLoggedIn = localStorage.getItem("user:token") !== null;
@@ -22,6 +25,12 @@ const ProtectedRoutes = ({ children }: React.PropsWithChildren) => {
 };
 
 function App() {
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(fetchInitialAmount());
+  }, [dispatch]);
+
   return (
     <Routes>
       <Route
